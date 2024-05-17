@@ -248,6 +248,7 @@ label{
     .right-div{
        height: 100%;
         align-items: center;
+        padding-bottom: 2vh;
     }
     
     .card2,.card1{
