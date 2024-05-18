@@ -36,6 +36,17 @@ footer{
  
   
 }
+.row3 a{
+  text-decoration: none;
+  color: black;
+}
+.row3 a:hover{
+   border-bottom: 1px solid green;
+   color: green;
+}
+.row3 i:hover{
+    transform: scale(1.2);
+}
 .box{
     height: 100%;
     width: 20rem;
@@ -168,10 +179,15 @@ footer{
     }
 }
 .footer-logo{
+   
     display: block;
     font-size: 1.5rem;
 }
 
+.footer-logo img{
+    height: 40%;
+    width: 50%;
+}
 
 
 @media screen and (max-width:380px) {
