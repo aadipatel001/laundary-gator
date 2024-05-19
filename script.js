@@ -160,6 +160,18 @@ book_now.addEventListener('click',()=>{
         return;
     }
     else{
+
+        let orderDet = []
+        cartitem.forEach((elem) => {
+            
+           orderDet += `${elem.name}   ${elem.price}`
+          
+        
+           }
+        )
+
+        console.log(orderDet);
+        sendMail(fullname.value, email.value, phone.value, orderDet)
         sucessFail.innerHTML=`<h4 style="color:green;"><span class="material-symbols-outlined">
         check_circle
         </span>Order Placed Successfully</h4>`;
@@ -179,7 +191,33 @@ function reset(){
     phone.value="";
     email.value="";
     addeditem()
-    
+    sucessFail.classList.toggle('.hide');
     document.querySelector('.bill').innerText=0;
     document.querySelector('.emptycart').classList.remove('hide');
+}
+
+
+
+function sendMail(fullname, mail, phoneNum, orderDet){
+    (function(){
+      emailjs.init("X24YLwqD4S5R0Ccpk");
+    })();
+    var params = {
+        to_name:fullname,
+        email:mail,
+        phone:phoneNum,
+        orderDetails:orderDet,
+   
+    }
+    
+    var servicID = "service_mqc08ja";
+    var templateID = "template_j71ai99"; 
+
+    window.emailjs.send(servicID, templateID, params)
+    .then(res => {
+        alert("email send sucseccfully" , res)
+    })
+    .catch((e) =>{
+        alert(e)
+    })
 }
